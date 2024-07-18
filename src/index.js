@@ -1,4 +1,5 @@
 import './style.css';
+import { noteprompt } from './newnotes';
 
 function createToggle() {
     let value = 0;
@@ -97,10 +98,20 @@ function sidebar(){
     return side;
 }
 
-const menutoggle = createToggle();
+function notes(){
+    const notescontainer = document.createElement('div');
+    notescontainer.id = 'notescontainer';
 
-document.getElementById('content').appendChild(topbar());
+    notescontainer.appendChild(noteprompt());
+
+    return notescontainer;
+}
+
+const menutoggle = createToggle();
+document.getElementById('header').appendChild(topbar());
 document.getElementById('content').appendChild(sidebar());
+document.getElementById('content').appendChild(notes());
+
 
 document.getElementById('inp').addEventListener('focus', function(){
     const inp = document.getElementById('inp');

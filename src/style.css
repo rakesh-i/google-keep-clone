@@ -6,6 +6,7 @@ body{
     align-items: center;
     font-family: roboto;
     padding: 8px;
+    border-bottom: 1px solid #DADCE0;
 }
 
 #headerleft{
@@ -53,19 +54,26 @@ body{
     height: 46px;
     border-radius: 8px;
     padding-left: 10px;
+    max-width: 50%;
 }
 
-input{
+#inpcont{
+    width: 100%;
+}
+
+#inp{
     border: none;
     background-color: #F1F3F4;
     height: 24px;
     font-size: 16px;
     padding-left: 16px;
     outline: none;
+    width: 90%;
 }
 #headerright{
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 #headerright button{
@@ -80,10 +88,15 @@ input{
     background-color: #F1F3F4;
 }
 
+#content{
+    display: flex;
+}
+
 #sidebar{
     display: flex;
     flex-direction: column;
     width: 58px;
+    margin-top: 8px;
 }
 #sidebar button{
     display: flex;
@@ -102,4 +115,10 @@ input{
 
 #sidebar button:hover{
     background-color:#FEEFC3;
+}
+
+#notescontainer{
+    display: flex;
+    flex: 1;
+    justify-content: center;
 }
