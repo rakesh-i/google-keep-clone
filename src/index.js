@@ -1,6 +1,5 @@
 import './style.css';
 import { noteprompt } from './newnotes';
-import { sources } from 'webpack';
 
 function createToggle() {
     let value = 0;
@@ -188,12 +187,7 @@ document.getElementById('take').addEventListener('focus', function(){
     notes.style.width = '100%'
     notecont.appendChild(notes);
     
-    const butcont = document.createElement('div');
-    butcont.id = 'notecont';
-
-    const close = document.createElement('button');
-    const reset = document.createElement('button');
-    const save = document.createElement('button');
+    
 
     
     promptcontainer.appendChild(titlecont);
