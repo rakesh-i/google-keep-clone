@@ -1,5 +1,6 @@
 import './style.css';
 import { noteprompt } from './newnotes';
+import { sources } from 'webpack';
 
 function createToggle() {
     let value = 0;
@@ -154,6 +155,64 @@ document.getElementById('burger').addEventListener('click', function(){
         reminder.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"/></svg>`
     }
 });
+
+document.getElementById('take').addEventListener('focus', function(){
+    const promptcontainer = document.getElementById('promptcontainer');
+    promptcontainer.innerHTML = '';
+    promptcontainer.style.height = 'auto';
+    promptcontainer.style.display = 'flex';
+    promptcontainer.style.flexDirection = 'column';
+    promptcontainer.style.alignItems  = 'start';
+
+    const titlecont = document.createElement('div');
+    titlecont.id = 'titlecont';
+    titlecont.style.display = 'flex';
+    titlecont.style.width = '100%';
+    const title = document.createElement('input');
+    title.id = 'notetitle';
+    title.style.border = 'none';
+    title.style.outline = 'none';
+    title.placeholder = 'Title';
+    title.style.width = '100%';
+    titlecont.appendChild(title);
+
+    const notecont = document.createElement('div');
+    notecont.id = 'notecont';
+    notecont.style.display = 'flex';
+    notecont.style.width = '100%';
+    const notes = document.createElement('textarea');
+    notes.id = 'notetext';
+    notes.placeholder =  'Take a note.....'
+    notes.style.border = 'none';
+    notes.style.outline = 'none';
+    notes.style.width = '100%'
+    notecont.appendChild(notes);
     
+    const butcont = document.createElement('div');
+    butcont.id = 'notecont';
+
+    const close = document.createElement('button');
+    const reset = document.createElement('button');
+    const save = document.createElement('button');
+
+    
+    promptcontainer.appendChild(titlecont);
+    promptcontainer.appendChild(notecont);
+    document.getElementById('notetext').addEventListener('input', function(){
+        console.log('ddd');
+        const textarea = document.getElementById('notetext');
+        textarea.style.height = 'auto';
+        textarea.style.height = `${textarea.scrollHeight}px`;
+    
+        if (textarea.scrollHeight > parseInt(getComputedStyle(textarea).maxHeight)) {
+            textarea.style.overflowY = 'scroll';
+        } else {
+            textarea.style.overflowY = 'hidden';
+        }
+    });
+    
+});  
+
+
     
 
